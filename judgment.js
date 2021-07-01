@@ -1,23 +1,31 @@
-function get_achievement(x, y, z) {
-    let sum = x + y + z, ans;
+function get_achievement(sum) {
+
     if (sum > 250) {
-        ans = 'A';
+        return 'A';
     } else if (sum >= 200) {
-        ans = 'B'
+        return 'B'
     } else if (sum >= 100) {
-        ans = 'C'
+        return 'C'
     } else {
-        ans = 'D'
+        return 'D'
     }
-    return ans;
+
 }
 
 function get_pass_or_failure(x, y, z) {
-    if (x >= 60 && y >= 60 && z >= 60) {
+    if (x >= 60, y >= 60, z >= 60) {
         return "Pass";
-    }else{
+    } else {
         return "Fail";
     }
-    //… Continued
+
 }
-console.log(get_pass_or_failure(60, 100, 60));
+
+function judgement(x, y, z) {
+    let sum = x + y + z;
+    let achievement = get_achievement(sum);
+    let pass_or_failure = get_pass_or_failure(x, y, z);
+    return `Your grade is ${achievement}. ${pass_or_failure}!`;
+}
+
+console.log(judgement(60, 100, 59));
